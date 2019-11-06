@@ -22,14 +22,14 @@ authors = Author.create(
 books = Book.create(
   [
     {
-      author_id: 0,
+      author_id: 1,
       title: "Catch-22",
       cover: nil,
       isbn: 9780684833392,
       page_count: 453
     },
     {
-      author_id: 1,
+      author_id: 2,
       title: "Mother Night",
       cover: nil,
       isbn: 9780385334143,
