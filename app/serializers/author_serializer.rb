@@ -5,7 +5,10 @@ class AuthorSerializer < ActiveModel::Serializer
     object.books.map do |book|
       {
         id: book.id,
-        title: book.title
+        title: book.title,
+        cover: book.cover,
+        isbn: book.isbn,
+        page_count: book.page_count
       }
     end
   end
