@@ -18,21 +18,26 @@ class Login extends Component {
     })
   }
 
+  handleSubmit = (event) => {
+    event.preventDefault();
+    this.props.login(this.state);
+  }
+
   render() {
     return(
-      <form>
+      <form onSubmit={this.handleSubmit}>
         <input
-          value={this.state.username}
-          name="username"
           type="text"
+          name="username"
           placeholder="Username"
+          value={this.state.username}
           onChange={this.handleChange}>
         </input>
         <input
-          value={this.state.password}
-          name="password"
           type="password"
+          name="password"
           placeholder="Password"
+          value={this.state.password}
           onChange={this.handleChange}>
         </input>
         <input value="Log In" type="submit"/>
@@ -42,4 +47,4 @@ class Login extends Component {
 
 }
 
-export default Login;
+export default connect(null, {login})(Login);
