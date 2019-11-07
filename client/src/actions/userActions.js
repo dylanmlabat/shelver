@@ -7,9 +7,9 @@ export const setCurrentUser = user => {
 
 export const login = credentials => {
   return dispatch => {
-    console.log("credentials are", credentials)
     return fetch("http://localhost:3001/api/v1/login", {
       method: "POST",
+      credentials: "include",
       headers: {"Content-Type": "application/json"},
       body: JSON.stringify({credentials})
     })
@@ -24,6 +24,7 @@ export const getCurrentUser = () => {
   return dispatch => {
     return fetch("http://localhost:3001/api/v1/find_user", {
       method: "GET",
+      credentials: "include",
       headers: {"Content-Type": "application/json"}
     })
     .then(response => response.json())
