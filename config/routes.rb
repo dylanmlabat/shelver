@@ -5,6 +5,7 @@ Rails.application.routes.draw do
       resources :authors
       resources :books
       resources :users
+      get '/find_user', to: 'sessions#find'
       post '/login', to: 'sessions#create'
     end
   end
