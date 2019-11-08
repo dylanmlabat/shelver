@@ -5,6 +5,7 @@ import { BrowserRouter as Router, Route, Switch, Redirect } from "react-router-d
 import {connect} from 'react-redux';
 import {logout, getCurrentUser} from './actions/userActions.js'
 import Login from './containers/Login';
+import Library from './components/Library';
 
 class App extends React.Component {
 
@@ -24,6 +25,9 @@ class App extends React.Component {
                 this.props.logout();
                 return <Redirect to='/' />
               }}
+            />
+            <Route exact path='/:username'
+              render={props => <Library user={this.props.user} />}
             />
           </Switch>
         </Router>

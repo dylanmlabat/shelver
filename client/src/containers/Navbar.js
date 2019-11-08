@@ -7,9 +7,14 @@ const Navbar = (props) => {
 
   if (props.user) {
     showTabs = (
-      <NavLink to="/logout" className="nav-link">
-        <span className="tab-title">Logout</span>
-      </NavLink>
+      <>
+        <NavLink to={"/"+props.user.username} className="nav-link">
+          <span className="tab-title">Library</span>
+        </NavLink>
+        <NavLink to="/logout" className="nav-link">
+          <span className="tab-title">Logout</span>
+        </NavLink>
+      </>
     )
   } else {
     showTabs = (
