@@ -12,7 +12,9 @@ class App extends React.Component {
 
   render(){
     return (
-      <Navbar />
+      <div className="App">
+        <Navbar />
+      </div>
     )
   }
 
