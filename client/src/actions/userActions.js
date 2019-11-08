@@ -34,8 +34,12 @@ export const getCurrentUser = () => {
       headers: {"Content-Type": "application/json"}
     })
     .then(response => response.json())
-    .then(user => {
-      dispatch(setCurrentUser(user))
+    .then(response => {
+      if (response.error) {
+        return response.error
+      } else {
+        dispatch(setCurrentUser(response))
+      }
     })
   }
 }
@@ -43,9 +47,9 @@ export const getCurrentUser = () => {
 export const logout = () => {
   return dispatch => {
     dispatch(clearCurrentUser())
-    return fetch("http://localhost:3001/api/v1/logout"), {
+    return fetch("http://localhost:3001/api/v1/logout", {
       method: "DELETE",
       credentials: "include"
-    }
+    })
   }
 }
