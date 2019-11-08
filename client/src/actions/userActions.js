@@ -20,8 +20,12 @@ export const login = credentials => {
       body: JSON.stringify({credentials})
     })
     .then(response => response.json())
-    .then(user => {
-      dispatch(setCurrentUser(user))
+    .then(response => {
+      if (response.error) {
+        return response.error
+      } else {
+        dispatch(setCurrentUser(response))
+      }
     })
   }
 }
