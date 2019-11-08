@@ -13,13 +13,16 @@ class App extends React.Component {
 
   render(){
     return (
-      <div>
-        <Login />
-        <Logout />
-      </div>
+      this.props.user ? <Logout /> : <Login />
     )
   }
 
 }
 
-export default connect(null, {getCurrentUser})(App);
+const mapStateToProps = ({user}) => {
+  return {
+    user
+  }
+}
+
+export default connect(mapStateToProps, {getCurrentUser})(App);
