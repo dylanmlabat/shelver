@@ -1,6 +1,7 @@
 import React from 'react';
 import './App.css';
 import Login from './containers/Login';
+import Logout from './components/Logout';
 import {connect} from 'react-redux';
 import {getCurrentUser} from './actions/userActions.js'
 
@@ -12,7 +13,10 @@ class App extends React.Component {
 
   render(){
     return (
-      <Login />
+      <div>
+        <Login />
+        <Logout />
+      </div>
     )
   }
 

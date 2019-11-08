@@ -7,6 +7,7 @@ Rails.application.routes.draw do
       resources :users
       get '/find_user', to: 'sessions#find'
       post '/login', to: 'sessions#create'
+      delete '/logout', to: 'sessions#destroy'
     end
   end
 end
