@@ -7,17 +7,23 @@ const Navbar = (props) => {
 
   if (props.user) {
     showTabs = (
-      <NavLink to="/logout">Logout</NavLink>
+      <NavLink to="/logout" className="nav-link">
+        <span className="tab-title">Logout</span>
+      </NavLink>
     )
   } else {
     showTabs = (
-      <NavLink to="/login">Log In</NavLink>
+      <NavLink to="/login" className="nav-link">
+        <span className="tab-title">Log In</span>
+      </NavLink>
     )
   }
 
   return(
-    <div className="Navbar">
-      <NavLink to="/">Shelver</NavLink>
+    <div className="navbar">
+      <NavLink to="/" className="nav-link">
+        <span className="tab-title">Shelver</span>
+      </NavLink>
       { showTabs }
     </div>
   )
