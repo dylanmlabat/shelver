@@ -11,8 +11,23 @@ export const clearCurrentUser = () => {
   }
 }
 
-export const signup = credentials => {
-
+export const signup = user => {
+  return dispatch => {
+    return fetch("http://localhost:3001/api/v1/signup", {
+      method: "POST",
+      credentials: "include",
+      headers: {"Content-Type": "application/json"},
+      body: JSON.stringify({user})
+    })
+    .then(response => response.json())
+    .then(response => {
+      if (response.error) {
+        return response.error
+      } else {
+        dispatch(setCurrentUser(response))
+      }
+    })
+  }
 }
 
 export const login = credentials => {
