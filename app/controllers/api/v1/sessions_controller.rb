@@ -11,8 +11,8 @@ class API::V1::SessionsController < ApplicationController
   end
 
   def create
-    @user = User.find_by(username: params[:session][:credentials][:username])
-    if @user && @user.authenticate(params[:session][:credentials][:password])
+    @user = User.find_by(username: params[:username])
+    if @user && @user.authenticate(params[:password])
       session[:user_id] = @user.id
       render json: @user
     else

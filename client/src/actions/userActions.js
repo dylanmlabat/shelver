@@ -30,13 +30,13 @@ export const signup = user => {
   }
 }
 
-export const login = credentials => {
+export const login = user => {
   return dispatch => {
     return fetch("http://localhost:3001/api/v1/login", {
       method: "POST",
       credentials: "include",
       headers: {"Content-Type": "application/json"},
-      body: JSON.stringify({credentials})
+      body: JSON.stringify(user)
     })
     .then(response => response.json())
     .then(response => {
