@@ -8,6 +8,7 @@ import SignUp from './containers/SignUp';
 import Login from './containers/Login';
 import Home from './components/Home';
 import About from './components/About';
+import Books from './containers/Books';
 import Library from './components/Library';
 
 class App extends React.Component {
@@ -23,6 +24,7 @@ class App extends React.Component {
           <Navbar user={this.props.user}/>
           <Switch>
             <Route exact path='/' component={Home} />
+            <Route exact path='/search' component={Books} />
             <Route exact path='/about' component={About} />
             <Route exact path='/signup' component={SignUp} />
             <Route exact path='/login' component={Login} />
