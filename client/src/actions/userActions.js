@@ -1,3 +1,5 @@
+const API_URL = process.env.REACT_APP_API_URL;
+
 export const setCurrentUser = user => {
   return {
     type: "SET_CURRENT_USER",
@@ -13,7 +15,7 @@ export const clearCurrentUser = () => {
 
 export const signup = user => {
   return dispatch => {
-    return fetch("http://localhost:3001/api/v1/signup", {
+    return fetch(`${API_URL}/signup`, {
       method: "POST",
       credentials: "include",
       headers: {"Content-Type": "application/json"},
@@ -32,7 +34,7 @@ export const signup = user => {
 
 export const login = user => {
   return dispatch => {
-    return fetch("http://localhost:3001/api/v1/login", {
+    return fetch(`${API_URL}/login`, {
       method: "POST",
       credentials: "include",
       headers: {"Content-Type": "application/json"},
@@ -51,7 +53,7 @@ export const login = user => {
 
 export const getCurrentUser = () => {
   return dispatch => {
-    return fetch("http://localhost:3001/api/v1/find_user", {
+    return fetch(`${API_URL}/find_user`, {
       method: "GET",
       credentials: "include",
       headers: {"Content-Type": "application/json"}
@@ -70,7 +72,7 @@ export const getCurrentUser = () => {
 export const logout = () => {
   return dispatch => {
     dispatch(clearCurrentUser())
-    return fetch("http://localhost:3001/api/v1/logout", {
+    return fetch(`${API_URL}/logout`, {
       method: "DELETE",
       credentials: "include"
     })
