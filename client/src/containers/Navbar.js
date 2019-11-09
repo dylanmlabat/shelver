@@ -31,6 +31,9 @@ const Navbar = (props) => {
 
   return(
     <div className="navbar">
+      <NavLink to="/about" className="nav-link">
+        <span className="tab-title">About</span>
+      </NavLink>
       <NavLink to="/" className="nav-link">
         <span className="tab-title">Shelver</span>
       </NavLink>
