@@ -6,8 +6,9 @@ import {connect} from 'react-redux';
 import {logout, getCurrentUser} from './actions/userActions.js'
 import SignUp from './containers/SignUp';
 import Login from './containers/Login';
-import Library from './components/Library';
+import Home from './components/Home';
 import About from './components/About';
+import Library from './components/Library';
 
 class App extends React.Component {
 
@@ -21,6 +22,7 @@ class App extends React.Component {
         <Router>
           <Navbar user={this.props.user}/>
           <Switch>
+            <Route exact path='/' component={Home} />
             <Route exact path='/about' component={About} />
             <Route exact path='/signup' component={SignUp} />
             <Route exact path='/login' component={Login} />
