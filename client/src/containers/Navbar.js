@@ -18,9 +18,14 @@ const Navbar = (props) => {
     )
   } else {
     showTabs = (
-      <NavLink to="/login" className="nav-link">
-        <span className="tab-title">Log In</span>
-      </NavLink>
+      <>
+        <NavLink to="/signup" className="nav-link">
+          <span className="tab-title">Sign Up</span>
+        </NavLink>
+        <NavLink to="/login" className="nav-link">
+          <span className="tab-title">Log In</span>
+        </NavLink>
+      </>
     )
   }
 
