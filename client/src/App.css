@@ -13,6 +13,24 @@
   color: white;
 }
 
+.Background {
+  background-image: url('./images/home-background.jpeg');
+  background-size: cover;
+  min-width: 100vw;
+  min-height: 100vh;
+  background-repeat: no-repeat;
+}
+
+.route-title {
+  border: solid black;
+  border-width: 3px;
+  display: inline-block;
+  vertical-align: middle;
+  padding: 8px;
+  background-color: white;
+  opacity: 0.8;
+}
+
 /* //////////////////////NAVBAR////////////////////// */
 
 .Navbar {
@@ -37,32 +55,39 @@
 
 .app-title {
   color: black;
-  font-size: 20px;
+  font-size: 22px;
   font-family: 'Heebo', sans-serif;
 }
 
 .tab-title {
   color: black;
-  font-size: 18px;
+  font-size: 16px;
   font-family: 'Heebo', sans-serif;
 }
 
 /* ///////////////////HOME/////////////////// */
-
-.Home {
-  background-image: url('./images/home-background.jpeg');
-  background-size: cover;
-  text-align: center;
-  min-height: 100vh;
-}
 
 .home-greeting {
   border: solid black;
   border-width: 3px;
   display: inline-block;
   vertical-align: middle;
-  margin-top: 22%;
+  margin-top: 21%;
   padding: 12px;
+  background-color: white;
+  opacity: 0.8;
+}
+
+/* ///////////////////ABOUT/////////////////// */
+
+.about-paragraph {
+  border: solid black;
+  border-width: 3px;
+  display: inline-block;
+  width: 700px;
+  padding-left: 5px;
+  padding-right: 5px;
+  vertical-align: middle;
   background-color: white;
   opacity: 0.8;
 }

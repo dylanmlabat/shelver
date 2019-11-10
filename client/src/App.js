@@ -22,22 +22,24 @@ class App extends React.Component {
       <div className="App">
         <Router>
           <Navbar user={this.props.user}/>
-          <Switch>
-            <Route exact path='/' component={Home} />
-            <Route exact path='/search' component={Books} />
-            <Route exact path='/about' component={About} />
-            <Route exact path='/signup' component={SignUp} />
-            <Route exact path='/login' component={Login} />
-            <Route path='/logout'
-              render={props => {
-                this.props.logout();
-                return <Redirect to='/' />
-              }}
-            />
-            <Route exact path='/:username'
-              render={props => <Library user={this.props.user} />}
-            />
-          </Switch>
+          <div className="Background">
+            <Switch>
+              <Route exact path='/' component={Home} />
+              <Route exact path='/search' component={Books} />
+              <Route exact path='/about' component={About} />
+              <Route exact path='/signup' component={SignUp} />
+              <Route exact path='/login' component={Login} />
+              <Route path='/logout'
+                render={props => {
+                  this.props.logout();
+                  return <Redirect to='/' />
+                }}
+              />
+              <Route exact path='/:username'
+                render={props => <Library user={this.props.user} />}
+              />
+            </Switch>
+          </div>
         </Router>
       </div>
     )
