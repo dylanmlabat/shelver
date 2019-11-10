@@ -8,10 +8,10 @@ const Navbar = (props) => {
   if (props.user) {
     showTabs = (
       <>
-        <NavLink to={"/"+props.user.username} className="nav-link">
+        <NavLink to={"/"+props.user.username} className="nav-link" activeClassName="selected-tab">
           <span className="tab-title">Library</span>
         </NavLink>
-        <NavLink to="/logout" className="nav-link">
+        <NavLink to="/logout" className="nav-link" activeClassName="selected-tab">
           <span className="tab-title">Logout</span>
         </NavLink>
       </>
@@ -19,10 +19,10 @@ const Navbar = (props) => {
   } else {
     showTabs = (
       <>
-        <NavLink to="/signup" className="nav-link">
+        <NavLink to="/signup" className="nav-link" activeClassName="selected-tab">
           <span className="tab-title">Sign Up</span>
         </NavLink>
-        <NavLink to="/login" className="nav-link">
+        <NavLink to="/login" className="nav-link" activeClassName="selected-tab">
           <span className="tab-title">Log In</span>
         </NavLink>
       </>
@@ -30,15 +30,15 @@ const Navbar = (props) => {
   }
 
   return(
-    <div className="navbar">
-      <NavLink to="/search" className="nav-link">
+    <div className="Navbar">
+      <NavLink to="/search" className="nav-link" activeClassName="selected-tab">
         <span className="tab-title">Search</span>
       </NavLink>
-      <NavLink to="/about" className="nav-link">
+      <NavLink to="/about" className="nav-link" activeClassName="selected-tab">
         <span className="tab-title">About</span>
       </NavLink>
-      <NavLink to="/" className="nav-link">
-        <span className="tab-title">Shelver</span>
+      <NavLink exact to="/" className="nav-link" activeClassName="selected-tab">
+        <span className="app-title">Shelver</span>
       </NavLink>
       { showTabs }
     </div>
