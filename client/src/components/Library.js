@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import LibraryList from '../containers/LibraryList'
 
 class Library extends Component {
 
@@ -9,6 +10,7 @@ class Library extends Component {
     return(
       <div className="Library">
         <h2>{user.firstname}'s Library</h2>
+        <LibraryList books={user.books} />
       </div>
     )
   }
