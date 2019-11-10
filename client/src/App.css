@@ -46,3 +46,22 @@
   font-size: 18px;
   font-family: 'Heebo', sans-serif;
 }
+
+/* ///////////////////HOME/////////////////// */
+
+.Home {
+  background-image: url('./images/home-background.jpeg');
+  background-size: cover;
+  text-align: center;
+  min-height: 100vh;
+}
+
+.greeting-text {
+  border: solid black;
+  border-width: 3px;
+  display: inline-block;
+  vertical-align: middle;
+  padding: 12px;
+  background-color: white;
+  opacity: 0.8;
+}
