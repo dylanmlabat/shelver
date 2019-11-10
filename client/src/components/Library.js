@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import LibraryList from '../containers/LibraryList'
+import LibraryList from '../containers/Library/LibraryList'
 
 class Library extends Component {
 

@@ -4,11 +4,11 @@ import Navbar from './containers/Navbar';
 import { BrowserRouter as Router, Route, Switch, Redirect } from "react-router-dom";
 import {connect} from 'react-redux';
 import {logout, getCurrentUser} from './actions/userActions.js'
-import SignUp from './containers/SignUp';
-import Login from './containers/Login';
+import SignUp from './containers/Account/SignUp';
+import Login from './containers/Account/Login';
 import Home from './components/Home';
 import About from './components/About';
-import Books from './containers/Books';
+import Books from './components/Books';
 import Library from './components/Library';
 
 class App extends React.Component {
@@ -22,7 +22,7 @@ class App extends React.Component {
       <div className="App">
         <Router>
           <Navbar user={this.props.user}/>
-          <div className="Background">
+          <div className="app-background">
             <Switch>
               <Route exact path='/' component={Home} />
               <Route exact path='/search' component={Books} />

@@ -13,7 +13,7 @@
   color: white;
 }
 
-.Background {
+.app-background {
   background-image: url('./images/home-background.jpeg');
   background-size: cover;
   min-width: 100vw;
