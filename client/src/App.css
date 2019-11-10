@@ -56,11 +56,12 @@
   min-height: 100vh;
 }
 
-.greeting-text {
+.home-greeting {
   border: solid black;
   border-width: 3px;
   display: inline-block;
   vertical-align: middle;
+  margin-top: 22%;
   padding: 12px;
   background-color: white;
   opacity: 0.8;
