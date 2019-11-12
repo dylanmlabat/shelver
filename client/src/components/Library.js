@@ -9,8 +9,9 @@ class Library extends Component {
 
     return(
       <div className="Library">
-        <h2>{user.firstname}'s Library</h2>
-        <LibraryList books={user.books} />
+        <h2 className="route-title">{user.firstname}'s Library</h2>
+        <br></br>
+        <div className="book-list"><LibraryList books={user.books} /></div>
       </div>
     )
   }

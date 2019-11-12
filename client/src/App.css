@@ -91,3 +91,17 @@
   background-color: white;
   opacity: 0.8;
 }
+
+/* ///////////////////BOOKS/////////////////// */
+
+.book-list {
+  border: solid black;
+  border-width: 3px;
+  display: inline-block;
+  width: auto;
+  padding-left: 5px;
+  padding-right: 5px;
+  vertical-align: middle;
+  background-color: white;
+  opacity: 0.8;
+}
