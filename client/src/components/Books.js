@@ -1,10 +1,13 @@
 import React, { Component } from 'react';
+import {connect} from 'react-redux';
 import BookSearch from '../containers/Books/BookSearch';
 import BookList from '../containers/Books/BookList';
 
 class Books extends Component {
 
   render(){
+
+    const books = this.props.books
 
     return(
       <div className="Books">
@@ -13,7 +16,7 @@ class Books extends Component {
         <div className="book-list">
           <BookSearch />
           <br></br>
-          <BookList />
+          <BookList books={books}/>
         </div>
       </div>
     )
@@ -27,4 +30,4 @@ const mapStateToProps = ({books}) => {
   }
 }
 
-export default Books;
+export default connect(mapStateToProps)(Books);

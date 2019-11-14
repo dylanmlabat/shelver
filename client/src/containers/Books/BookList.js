@@ -8,11 +8,12 @@ const BookList = (props) => {
     renderList = props.books.map(book => {
       return(
         <div className="google-book" key={book.id}>
+          {book.volumeInfo.title}
         </div>
       )
     })
   } else {
-    renderList = "No matching books found."
+    renderList = "No results."
   }
 
   return(
