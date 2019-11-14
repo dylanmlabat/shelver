@@ -12,7 +12,7 @@ class BookList extends Component {
     if (this.props.books != null && this.props.books.length > 0) {
       renderList = this.props.books.map(book => {
         return(
-          <li className="google-book" key={book.id}>
+          <li className="book-list-item" key={book.id}>
             <img src={book.volumeInfo.imageLinks.smallThumbnail}></img><br></br>
             {book.volumeInfo.title}<br></br>
             {book.volumeInfo.authors ? (

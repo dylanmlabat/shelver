@@ -10,7 +10,9 @@ class Library extends Component {
       <div className="Library">
         <h2 className="route-title">{user.firstname}'s Library</h2>
         <br></br>
-        <div className="book-list"><LibraryList books={user.books} /></div>
+        <div className="book-list">
+          <LibraryList books={user.books} />
+        </div>
       </div>
     )
   }

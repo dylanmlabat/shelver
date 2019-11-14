@@ -8,11 +8,12 @@ class LibraryList extends Component {
     if (this.props.books.length > 0) {
       renderList = this.props.books.map(book => {
         return(
-          <div className="library-book" key={book.id}>
+          <li className="book-list-item" key={book.id}>
+            <img src={book.cover}></img><br></br>
             {book.title}<br></br>
-            <small>by {book.author.firstname} {book.author.lastname}</small>
-            <br></br><br></br>
-          </div>
+            {book.authors ? (<small>by {book.authors[0]}</small>) : ("")}
+            <br></br>
+          </li>
         )
       })
     } else {

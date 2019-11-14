@@ -1,10 +1,3 @@
 class BookSerializer < ActiveModel::Serializer
-  attributes :id, :title, :author, :cover, :isbn, :page_count
-
-  def author
-    {
-      firstname: object.author.firstname,
-      lastname: object.author.lastname
-    }
-  end
+  attributes :id, :api_id, :title, :authors, :cover, :publisher, :publish_date, :page_count, :summary
 end
