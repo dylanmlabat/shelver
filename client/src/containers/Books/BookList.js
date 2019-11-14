@@ -7,13 +7,18 @@ const BookList = (props) => {
   if (props.books != null && props.books.length > 0) {
     renderList = props.books.map(book => {
       return(
-        <div className="google-book" key={book.id}>
-          {book.volumeInfo.title}
-        </div>
+        <li className="google-book" key={book.id}>
+          <img src={book.volumeInfo.imageLinks.smallThumbnail}></img><br></br>
+          {book.volumeInfo.title}<br></br>
+          {book.volumeInfo.authors ? (
+            <div>
+              <small>by {book.volumeInfo.authors[0]}</small>
+              <br></br><br></br>
+            </div>
+          ) : ("")}
+        </li>
       )
     })
-  } else {
-    renderList = "No results."
   }
 
   return(

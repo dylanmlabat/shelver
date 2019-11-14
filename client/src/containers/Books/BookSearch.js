@@ -24,7 +24,7 @@ class BookSearch extends Component {
 
   render() {
     return(
-      <div>
+      <div className="google-search">
         <form onSubmit={this.handleSubmit}>
           <input
             type="text"

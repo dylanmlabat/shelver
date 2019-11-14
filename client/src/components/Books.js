@@ -15,7 +15,6 @@ class Books extends Component {
         <br></br>
         <div className="book-list">
           <BookSearch />
-          <br></br>
           <BookList books={books}/>
         </div>
       </div>
