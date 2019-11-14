@@ -4,7 +4,6 @@ import LibraryList from '../containers/Library/LibraryList'
 class Library extends Component {
 
   render(){
-
     const user = this.props.user
 
     return(

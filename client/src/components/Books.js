@@ -6,7 +6,6 @@ import BookList from '../containers/Books/BookList';
 class Books extends Component {
 
   render(){
-
     const books = this.props.books
 
     return(
