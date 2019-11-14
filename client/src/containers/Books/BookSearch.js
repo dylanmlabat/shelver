@@ -24,21 +24,17 @@ class BookSearch extends Component {
 
   render() {
     return(
-      <div className="route-title">
-        <h2>Search Google Books Database</h2>
-        <div>
-          <form onSubmit={this.handleSubmit}>
-            <input
-              type="text"
-              name="books"
-              placeholder="Author, Title, or ISBN"
-              value={this.state.books}
-              onChange={this.handleChange}>
-            </input>
-            <br></br>
-            <input value="Search" type="submit"/>
-          </form>
-        </div>
+      <div>
+        <form onSubmit={this.handleSubmit}>
+          <input
+            type="text"
+            name="books"
+            placeholder="Author, Title, or ISBN"
+            value={this.state.books}
+            onChange={this.handleChange}>
+          </input>
+          <input value="Search" type="submit"/>
+        </form>
       </div>
     )
   }
