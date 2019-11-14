@@ -1,31 +1,38 @@
-import React from 'react';
+import React, { Component } from 'react';
 
-const BookList = (props) => {
+class BookList extends Component {
 
-  let renderList;
-
-  if (props.books != null && props.books.length > 0) {
-    renderList = props.books.map(book => {
-      return(
-        <li className="google-book" key={book.id}>
-          <img src={book.volumeInfo.imageLinks.smallThumbnail}></img><br></br>
-          {book.volumeInfo.title}<br></br>
-          {book.volumeInfo.authors ? (
-            <div>
-              <small>by {book.volumeInfo.authors[0]}</small>
-              <br></br><br></br>
-            </div>
-          ) : ("")}
-        </li>
-      )
-    })
+  handleClick = (event) => {
+    event.preventDefault();
   }
 
-  return(
-    <div className="BookList">
-      {renderList}
-    </div>
-  )
+  render() {
+    let renderList;
+
+    if (this.props.books != null && this.props.books.length > 0) {
+      renderList = this.props.books.map(book => {
+        return(
+          <li className="google-book" key={book.id}>
+            <img src={book.volumeInfo.imageLinks.smallThumbnail}></img><br></br>
+            {book.volumeInfo.title}<br></br>
+            {book.volumeInfo.authors ? (
+              <div>
+                <small>by {book.volumeInfo.authors[0]}</small>
+              </div>
+            ) : ("")}
+            <br></br>
+            <button onClick={this.handleClick}>Add to Library</button>
+          </li>
+        )
+      })
+    }
+
+    return(
+      <div className="BookList">
+        {renderList}
+      </div>
+    )
+  }
 
 }
 
