@@ -12,6 +12,11 @@ class API::V1::PurchasesController < ApplicationController
     end
   end
 
+  def destroy
+    @purchase = Purchase.find(params[:id])
+    @purchase.destroy
+  end
+
   private
 
     def purchase_params

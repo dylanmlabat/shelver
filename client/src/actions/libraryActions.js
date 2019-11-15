@@ -12,3 +12,12 @@ export const createPurchase = (book, user) => {
     .catch(error => {return error})
   }
 }
+
+export const destroyPurchase = (purchaseId) => {
+  return dispatch => {
+    return fetch(`${API_URL}/purchases/${purchaseId}`, {
+      method: "DELETE",
+      credentials: "include"
+    })
+  }
+}
