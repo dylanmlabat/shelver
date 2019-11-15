@@ -1,9 +1,12 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { findOrCreateBook } from '../../actions/bookActions';
 
 class BookList extends Component {
 
-  handleClick = (event) => {
+  handleClick = (event, book) => {
     event.preventDefault();
+    this.props.findOrCreateBook(book)
   }
 
   render() {
@@ -21,7 +24,7 @@ class BookList extends Component {
               </div>
             ) : ("")}
             <br></br>
-            <button onClick={this.handleClick}>Add to Library</button>
+            <button onClick={(event) => this.handleClick(event, book)}>Add to Library</button>
           </li>
         )
       })
@@ -36,4 +39,4 @@ class BookList extends Component {
 
 }
 
-export default BookList;
+export default connect(null, {findOrCreateBook})(BookList);

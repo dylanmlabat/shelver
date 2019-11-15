@@ -11,7 +11,8 @@ class API::V1::BooksController < ApplicationController
   end
 
   def create
-    @book = Book.new(book_params)
+    @book = Book.find_or_create_by(api_id: book_params[:api_id])
+    @book.update(book_params)
     if @book.save
       render json: @book
     else
@@ -24,7 +25,7 @@ class API::V1::BooksController < ApplicationController
   private
 
     def book_params
-      params.require(:book).permit(:api_id, :title, :authors, :cover, :publisher, :publish_date, :page_count, :summary)
+      params.require(:book).permit(:api_id, :title, {:authors => []}, :cover, :publisher, :publish_date, :page_count, :summary)
     end
 
 end

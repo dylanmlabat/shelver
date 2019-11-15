@@ -1,3 +1,4 @@
+const API_URL = process.env.REACT_APP_API_URL;
 const API_KEY = process.env.REACT_APP_GOOGLE_API_KEY;
 
 export const setGoogleBooks = books => {
@@ -8,9 +9,8 @@ export const setGoogleBooks = books => {
 }
 
 export const fetchGoogleBooks = (query) => {
-  const searchTerm = query
   return dispatch => {
-    return fetch(`https://www.googleapis.com/books/v1/volumes?q=${searchTerm}&key=${API_KEY}`, {
+    return fetch(`https://www.googleapis.com/books/v1/volumes?q=${query}&key=${API_KEY}`, {
       method: "GET",
       credentials: "include",
       headers: {"Content-Type": "application/json"}
@@ -21,6 +21,34 @@ export const fetchGoogleBooks = (query) => {
         return response.error
       } else {
         dispatch(setGoogleBooks(response.items))
+      }
+    })
+  }
+}
+
+export const findOrCreateBook = book => {
+  return dispatch => {
+    return fetch(`${API_URL}/books`, {
+      method: "POST",
+      credentials: "include",
+      headers: {"Content-Type": "application/json"},
+      body: JSON.stringify({
+        api_id: book.id,
+        title: book.volumeInfo.title,
+        authors: book.volumeInfo.authors,
+        cover: book.volumeInfo.imageLinks.smallThumbnail,
+        publisher: book.volumeInfo.publisher,
+        publish_date: book.volumeInfo.publishedDate,
+        page_count: book.volumeInfo.pageCount,
+        summary: book.volumeInfo.description
+      })
+    })
+    .then(response => response.json())
+    .then(response => {
+      if (response.error) {
+        console.log(response.error)
+      } else {
+        console.log(book)
       }
     })
   }
