@@ -23,12 +23,9 @@ export const signup = user => {
     })
     .then(response => response.json())
     .then(response => {
-      if (response.error) {
-        return response.error
-      } else {
-        dispatch(setCurrentUser(response))
-      }
+      dispatch(setCurrentUser(response))
     })
+    .catch(error => {return error})
   }
 }
 
@@ -42,12 +39,9 @@ export const login = user => {
     })
     .then(response => response.json())
     .then(response => {
-      if (response.error) {
-        return response.error
-      } else {
-        dispatch(setCurrentUser(response))
-      }
+      dispatch(setCurrentUser(response))
     })
+    .catch(error => {return error})
   }
 }
 
@@ -60,12 +54,9 @@ export const getCurrentUser = () => {
     })
     .then(response => response.json())
     .then(response => {
-      if (response.error) {
-        return response.error
-      } else {
-        dispatch(setCurrentUser(response))
-      }
+      dispatch(setCurrentUser(response))
     })
+    .catch(error => {return error})
   }
 }
 

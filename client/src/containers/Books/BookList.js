@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { findOrCreateBook, createPurchase } from '../../actions/bookActions';
+import { findOrCreateBook } from '../../actions/bookActions';
+import { createPurchase } from '../../actions/libraryActions';
 
 class BookList extends Component {
 
@@ -18,7 +19,11 @@ class BookList extends Component {
       renderList = this.props.books.map(book => {
         return(
           <li className="book-list-item" key={book.id}>
-            <img src={book.volumeInfo.imageLinks.smallThumbnail} alt=""></img><br></br>
+            {book.volumeInfo.imageLinks && book.volumeInfo.imageLinks.smallThumbnail ? (
+              <div>
+                <img src={book.volumeInfo.imageLinks.smallThumbnail} alt=""></img><br></br>
+              </div>
+            ) : ("")}
             {book.volumeInfo.title}<br></br>
             {book.volumeInfo.authors ? (
               <div>

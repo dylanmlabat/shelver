@@ -8,7 +8,7 @@ export const setGoogleBooks = books => {
   }
 }
 
-export const fetchGoogleBooks = (query) => {
+export const fetchGoogleBooks = query => {
   return dispatch => {
     return fetch(`https://www.googleapis.com/books/v1/volumes?q=${query}&key=${API_KEY}`, {
       method: "GET",
@@ -17,12 +17,9 @@ export const fetchGoogleBooks = (query) => {
     })
     .then(response => response.json())
     .then(response => {
-      if (response.error) {
-        return response.error
-      } else {
-        dispatch(setGoogleBooks(response.items))
-      }
+      dispatch(setGoogleBooks(response.items))
     })
+    .catch(error => {return error})
   }
 }
 
@@ -44,31 +41,6 @@ export const findOrCreateBook = book => {
       })
     })
     .then(response => response.json())
-    .then(response => {
-      if (response.error) {
-        console.log(response.error)
-      } else {
-        console.log(book)
-      }
-    })
-  }
-}
-
-export const createPurchase = (book, user) => {
-  return dispatch => {
-    return fetch(`${API_URL}/purchases`, {
-      method: "POST",
-      credentials: "include",
-      headers: {"Content-Type": "application/json"},
-      body: JSON.stringify({user, book})
-    })
-    .then(response => response.json())
-    .then(response => {
-      if (response.error) {
-        console.log(response.error)
-      } else {
-        console.log(book)
-      }
-    })
+    .catch(error => {return error})
   }
 }
