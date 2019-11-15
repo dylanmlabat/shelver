@@ -1,16 +1,18 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { findOrCreateBook } from '../../actions/bookActions';
+import { findOrCreateBook, createPurchase } from '../../actions/bookActions';
 
 class BookList extends Component {
 
-  handleClick = (event, book) => {
+  handleClick = async (event, book, user) => {
     event.preventDefault();
-    this.props.findOrCreateBook(book)
+    await this.props.findOrCreateBook(book);
+    this.props.createPurchase(book, user);
   }
 
   render() {
     let renderList;
+    let user = this.props.user
 
     if (this.props.books != null && this.props.books.length > 0) {
       renderList = this.props.books.map(book => {
@@ -24,7 +26,7 @@ class BookList extends Component {
               </div>
             ) : ("")}
             <br></br>
-            <button onClick={(event) => this.handleClick(event, book)}>Add to Library</button>
+            <button onClick={(event) => this.handleClick(event, book, user)}>Add to Library</button>
           </li>
         )
       })
@@ -39,4 +41,10 @@ class BookList extends Component {
 
 }
 
-export default connect(null, {findOrCreateBook})(BookList);
+const mapStateToProps = ({user}) => {
+  return {
+    user
+  }
+}
+
+export default connect(mapStateToProps, {findOrCreateBook, createPurchase})(BookList);

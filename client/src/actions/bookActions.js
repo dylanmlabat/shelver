@@ -53,3 +53,22 @@ export const findOrCreateBook = book => {
     })
   }
 }
+
+export const createPurchase = (book, user) => {
+  return dispatch => {
+    return fetch(`${API_URL}/purchases`, {
+      method: "POST",
+      credentials: "include",
+      headers: {"Content-Type": "application/json"},
+      body: JSON.stringify({user, book})
+    })
+    .then(response => response.json())
+    .then(response => {
+      if (response.error) {
+        console.log(response.error)
+      } else {
+        console.log(book)
+      }
+    })
+  }
+}

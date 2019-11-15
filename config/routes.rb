@@ -4,6 +4,7 @@ Rails.application.routes.draw do
     namespace :v1 do
       resources :books
       resources :users
+      resources :purchases
       get '/find_user', to: 'sessions#find'
       post '/signup', to: 'users#create'
       post '/login', to: 'sessions#create'
