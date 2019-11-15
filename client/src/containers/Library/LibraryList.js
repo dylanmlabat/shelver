@@ -4,33 +4,16 @@ import { destroyPurchase } from '../../actions/libraryActions';
 
 class LibraryList extends Component {
 
-  constructor(){
-    super();
-    this.state = {
-      books: []
-    }
-  }
-
-  componentDidMount() {
-    this.setState({books: this.props.books})
-  }
-
   handleClick = (event, purchaseId) => {
     event.preventDefault();
     this.props.destroyPurchase(purchaseId);
-    this.setState(state => {
-      const books = state.books.filter(book => book.purchase_id !== purchaseId)
-      return {
-        books
-      };
-    })
   }
 
   render() {
     let renderList;
 
-    if (this.state.books.length > 0) {
-      renderList = this.state.books.map(book => {
+    if (this.props.books.length > 0) {
+      renderList = this.props.books.map(book => {
         let purchaseId = book.purchase_id
 
         return(

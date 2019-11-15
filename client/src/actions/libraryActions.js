@@ -1,5 +1,12 @@
 const API_URL = process.env.REACT_APP_API_URL;
 
+export const removeUserBook = id => {
+  return {
+    type: "REMOVE_USER_BOOK",
+    id
+  }
+}
+
 export const createPurchase = (book, user) => {
   return dispatch => {
     return fetch(`${API_URL}/purchases`, {
@@ -19,5 +26,6 @@ export const destroyPurchase = (purchaseId) => {
       method: "DELETE",
       credentials: "include"
     })
+    .then(dispatch(removeUserBook(purchaseId)))
   }
 }
