@@ -16,7 +16,7 @@ class BookList extends Component {
       renderList = this.props.books.map(book => {
         return(
           <li className="book-list-item" key={book.id}>
-            <img src={book.volumeInfo.imageLinks.smallThumbnail}></img><br></br>
+            <img src={book.volumeInfo.imageLinks.smallThumbnail} alt=""></img><br></br>
             {book.volumeInfo.title}<br></br>
             {book.volumeInfo.authors ? (
               <div>
