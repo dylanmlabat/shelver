@@ -1,5 +1,12 @@
 const API_URL = process.env.REACT_APP_API_URL;
 
+export const addUserBook = (response, book) => {
+  return {
+    type: "ADD_USER_BOOK",
+    response, book
+  }
+}
+
 export const removeUserBook = id => {
   return {
     type: "REMOVE_USER_BOOK",
@@ -16,6 +23,7 @@ export const createPurchase = (book, user) => {
       body: JSON.stringify({user, book})
     })
     .then(response => response.json())
+    .then(response => dispatch(addUserBook(response, book)))
     .catch(error => {return error})
   }
 }
