@@ -5,7 +5,7 @@ class UserSerializer < ActiveModel::Serializer
     object.books.map do |book|
       {
         id: book.id,
-        purchase_id: book.purchase_ids,
+        purchase_ids: book.purchase_ids,
         api_id: book.api_id,
         title: book.title,
         authors: book.authors,

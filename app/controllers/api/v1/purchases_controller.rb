@@ -1,7 +1,7 @@
 class API::V1::PurchasesController < ApplicationController
 
   def create
-    @book = Book.find_by(api_id: params[:book][:id])
+    @book = Book.find_by(api_id: params[:book][:api_id])
     @purchase = Purchase.new(user_id: params[:user][:id], book_id: @book.id)
     if @purchase.save
       render json: @purchase

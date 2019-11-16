@@ -7,8 +7,8 @@ class BookList extends Component {
 
   handleClick = async (event, book, user) => {
     event.preventDefault();
-    await this.props.findOrCreateBook(book);
-    this.props.createPurchase(book, user);
+    let bookJson = await this.props.findOrCreateBook(book);
+    this.props.createPurchase(bookJson, user);
   }
 
   render() {

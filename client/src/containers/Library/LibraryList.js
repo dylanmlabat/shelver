@@ -14,7 +14,7 @@ class LibraryList extends Component {
 
     if (this.props.books.length > 0) {
       renderList = this.props.books.map(book => {
-        let purchaseId = book.purchase_id
+        let purchaseId = book.purchase_ids
 
         return(
           <li className="book-list-item" key={book.id}>
