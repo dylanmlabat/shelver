@@ -8,6 +8,13 @@ export const setGoogleBooks = books => {
   }
 }
 
+export const disableGoogleBook = (book, index) => {
+  return {
+    type: "DISABLE_GOOGLE_BOOK",
+    book, index
+  }
+}
+
 export const fetchGoogleBooks = query => {
   return dispatch => {
     return fetch(`https://www.googleapis.com/books/v1/volumes?q=${query}&key=${API_KEY}`, {

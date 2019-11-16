@@ -1,25 +1,15 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { findOrCreateBook } from '../../actions/bookActions';
+import { disableGoogleBook, findOrCreateBook } from '../../actions/bookActions';
 import { createPurchase } from '../../actions/libraryActions';
 
 class BookList extends Component {
 
-  constructor() {
-    super();
-    this.state = {
-      disabled: []
-    };
-  }
-
-
-  handleClick = async (event, book, user) => {
+  handleClick = async (event, book, user, index) => {
     event.preventDefault();
+    this.props.disableGoogleBook(book, index)
     let bookJson = await this.props.findOrCreateBook(book);
     this.props.createPurchase(bookJson, user);
-    this.setState({
-      disabled: [...this.state.disabled, book.id]
-    })
   }
 
   render() {
@@ -27,7 +17,7 @@ class BookList extends Component {
     let user = this.props.user
 
     if (this.props.books != null && this.props.books.length > 0) {
-      renderList = this.props.books.map(book => {
+      renderList = this.props.books.map((book, index) => {
         return(
           <li className="book-list-item" key={book.id}>
             {book.volumeInfo.imageLinks && book.volumeInfo.imageLinks.smallThumbnail ? (
@@ -42,8 +32,8 @@ class BookList extends Component {
               </div>
             ) : ("")}
             <br></br>
-            <button onClick={(event) => this.handleClick(event, book, user)} disabled={this.state.disabled.indexOf(book.id) !==- 1}>
-              Add to Library
+            <button onClick={(event) => this.handleClick(event, book, user, index)} disabled={book.disabled}>
+              {book.disabled ? "Added to Library" : "Add to Library"}
             </button>
           </li>
         )
@@ -65,4 +55,4 @@ const mapStateToProps = ({user}) => {
   }
 }
 
-export default connect(mapStateToProps, {findOrCreateBook, createPurchase})(BookList);
+export default connect(mapStateToProps, {disableGoogleBook, findOrCreateBook, createPurchase})(BookList);

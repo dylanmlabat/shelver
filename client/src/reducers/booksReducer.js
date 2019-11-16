@@ -3,10 +3,20 @@ export default (state = null, action) => {
 
     case "SET_GOOGLE_BOOKS":
       if (action.books !== undefined) {
-        return action.books
+        const books = action.books.map(book => {
+          return {...book, disabled: false}
+        })
+        return books
       } else {
         return null
       }
+
+    case "DISABLE_GOOGLE_BOOK":
+      const index = action.index
+      const disabledBook = {...action.book, disabled: true}
+      return [...state.map(
+        (book, i) => i === index ? disabledBook : book
+      )]
 
     default:
       return state;
