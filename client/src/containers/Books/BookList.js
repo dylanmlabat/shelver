@@ -5,10 +5,21 @@ import { createPurchase } from '../../actions/libraryActions';
 
 class BookList extends Component {
 
+  constructor() {
+    super();
+    this.state = {
+      disabled: []
+    };
+  }
+
+
   handleClick = async (event, book, user) => {
     event.preventDefault();
     let bookJson = await this.props.findOrCreateBook(book);
     this.props.createPurchase(bookJson, user);
+    this.setState({
+      disabled: [...this.state.disabled, book.id]
+    })
   }
 
   render() {
@@ -31,7 +42,9 @@ class BookList extends Component {
               </div>
             ) : ("")}
             <br></br>
-            <button onClick={(event) => this.handleClick(event, book, user)}>Add to Library</button>
+            <button onClick={(event) => this.handleClick(event, book, user)} disabled={this.state.disabled.indexOf(book.id) !==- 1}>
+              Add to Library
+            </button>
           </li>
         )
       })
