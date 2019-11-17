@@ -15,10 +15,9 @@
 
 .app-background {
   background-image: url('./images/home-background.jpeg');
-  background-size: cover;
+  background-repeat: repeat-y;
   min-width: 100vw;
   min-height: 100vh;
-  background-repeat: no-repeat;
 }
 
 .route-title {
