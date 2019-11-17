@@ -5,11 +5,12 @@ class Navbar extends Component {
 
   render() {
     let showTabs;
+    let user = this.props.user
 
-    if (this.props.user) {
+    if (user !== null && user.id) {
       showTabs = (
         <>
-          <NavLink to={"/"+this.props.user.username} className="nav-link" activeClassName="selected-tab">
+          <NavLink to={"/"+user.username} className="nav-link" activeClassName="selected-tab">
             <span className="tab-title">Library</span>
           </NavLink>
           <NavLink to="/logout" className="nav-link" activeClassName="selected-tab">
