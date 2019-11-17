@@ -32,9 +32,11 @@ class BookList extends Component {
               </div>
             ) : ("")}
             <br></br>
-            <button onClick={(event) => this.handleClick(event, book, user, index)} disabled={book.disabled}>
-              {book.disabled ? "Added to Library" : "Add to Library"}
-            </button>
+            {(user !== null && user.id) ?
+              <button onClick={(event) => this.handleClick(event, book, user, index)} disabled={book.disabled}>
+                {book.disabled ? "Added to Library" : "Add to Library"}
+              </button> : ""
+            }
           </li>
         )
       })
