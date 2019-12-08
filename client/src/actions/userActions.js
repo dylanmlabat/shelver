@@ -45,6 +45,19 @@ export const login = user => {
   }
 }
 
+export const findUser = (user) => {
+  return dispatch => {
+    return fetch(`${API_URL}/${user}`, {
+      method: "GET",
+      credentials: "include",
+      headers: {"Content-Type": "application/json"}
+    })
+    .then(response => response.json())
+    .then(response => console.log(response))
+    .catch(error => {return error})
+  }
+}
+
 export const getCurrentUser = () => {
   return dispatch => {
     return fetch(`${API_URL}/find_user`, {

@@ -1,7 +1,13 @@
 import React, { Component } from 'react';
 import LibraryList from '../containers/Library/LibraryList'
+import { connect } from 'react-redux';
+import { findUser } from '../actions/userActions'
 
 class Library extends Component {
+
+  componentDidMount(){
+    this.props.findUser(this.props.match.params.username)
+  }
 
   render(){
     const user = this.props.user
@@ -11,7 +17,6 @@ class Library extends Component {
         <h2 className="route-title">{user.firstname}'s Library</h2>
         <br></br>
         <div className="book-list">
-          {this.props.match.params.username}
           <LibraryList books={user.books} />
         </div>
       </div>
@@ -20,4 +25,4 @@ class Library extends Component {
 
 }
 
-export default Library;
+export default connect(null, {findUser})(Library);
