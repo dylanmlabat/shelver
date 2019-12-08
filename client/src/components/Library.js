@@ -11,6 +11,7 @@ class Library extends Component {
         <h2 className="route-title">{user.firstname}'s Library</h2>
         <br></br>
         <div className="book-list">
+          {this.props.match.params.username}
           <LibraryList books={user.books} />
         </div>
       </div>

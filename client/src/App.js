@@ -36,7 +36,7 @@ class App extends React.Component {
                 }}
               />
               <Route exact path='/:username'
-                render={props => <Library user={this.props.user} />}
+                render={({match}) => <Library user={this.props.user} match={match} />}
               />
             </Switch>
           </div>
