@@ -6,8 +6,14 @@ class API::V1::UsersController < ApplicationController
   end
 
   def show
-    @user = User.find(params[:id])
-    render json: @user
+    @user = User.find_by(username: params[:username])
+    if @user
+      render json: @user
+    else
+      render json: {
+        error: "No user found."
+      }
+    end
   end
 
   def create

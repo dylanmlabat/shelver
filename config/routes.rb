@@ -3,9 +3,10 @@ Rails.application.routes.draw do
   namespace :api do
     namespace :v1 do
       resources :books
-      resources :users
+      resources :users, only: [:index, :create]
       resources :purchases
       get '/find_user', to: 'sessions#find'
+      get '/:username', to: 'users#show', as: :user
       post '/signup', to: 'users#create'
       post '/login', to: 'sessions#create'
       delete '/logout', to: 'sessions#destroy'
